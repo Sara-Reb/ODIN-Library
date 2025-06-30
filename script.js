@@ -9,18 +9,20 @@ const form = document.querySelector("form");
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+class Book {
   // constructor
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.read = read;
-  this.id = crypto.randomUUID();
-}
+  constructor(title, author, pages, read) {
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.read = read;
+    this.id = crypto.randomUUID();
+  }
 
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-};
+  toggleRead() {
+    this.read = !this.read;
+  }
+}
 
 function addBookToLibrary(title, author, pages, read) {
   // take params, create a book then store it in the array
